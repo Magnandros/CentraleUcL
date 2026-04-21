@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Centrale - Régionale du Centre LLN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+        
+        :root {
+            --centrale-blue: #89b3e0; /* Bleu du blason */
+            --centrale-wolf: #a64d2e; /* Brun du loup */
+            --centrale-white: #f8fafc;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--centrale-white);
+            overflow-x: hidden;
+        }
+
+        .font-folklorique { font-family: 'UnifrakturMaguntia', cursive; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-glass {
+            background: rgba(137, 179, 224, 0.85);
+            backdrop-filter: blur(12px);
+        }
+
+        .wolf-gradient {
+            background: linear-gradient(135deg, var(--centrale-blue), #ffffff);
+        }
+
+        .btn-wolf {
+            background-color: var(--centrale-wolf);
+            color: white;
+            transition: all 0.3s;
+        }
+        .btn-wolf:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(166, 77, 46, 0.3);
+            background-color: #8e3f24;
+        }
+
+        .partner-logo {
+            filter: grayscale(100%);
+            transition: all 0.3s;
+            opacity: 0.7;
+        }
+        .partner-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-50 nav-glass border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md overflow-hidden">
+                    <img src="images/logo_blason.png" alt="Blason Centrale" onerror="this.src='https://via.placeholder.com/50x50?text=🐺'" class="w-full h-full object-contain">
+                </div>
+                <span class="text-2xl font-folklorique text-slate-800">La Centrale</span>
+            </div>
+            <div class="hidden md:flex space-x-8 font-bold text-sm uppercase tracking-widest text-slate-900">
+                <a href="#accueil" class="hover:text-white transition">Accueil</a>
+                <a href="#evenements" class="hover:text-white transition">Événements</a>
+                <a href="#partenaires" class="hover:text-white transition">Partenaires</a>
+                <a href="#contact" class="hover:text-white transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="accueil" class="relative h-screen flex items-center justify-center wolf-gradient">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/handmade-paper.png')]"></div>
+        </div>
+        <div class="relative z-10 text-center px-4">
+            <h2 class="text-xl md:text-2xl font-serif italic text-slate-700 mb-2">Régionale de Louvain-la-Neuve</h2>
+            <h1 class="text-6xl md:text-9xl font-folklorique text-slate-900 mb-6 drop-shadow-sm">La Centrale</h1>
+            <div class="w-24 h-1 bg-slate-800 mx-auto mb-8"></div>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto text-slate-700 font-light leading-relaxed">
+                Le folklore du Centre brille à Louvain-la-Neuve. <span class="font-bold">120 membres actifs</span>, une meute soudée pour l'éternité.
+            </p>
+            <div class="mt-12">
+                <a href="#evenements" class="btn-wolf px-10 py-4 rounded-full text-lg font-bold shadow-xl uppercase tracking-widest text-sm">Calendrier de la Meute</a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-slate-400 text-2xl"></i>
+        </div>
+    </header>
+
+    <!-- SECTION ÉVÉNEMENTS -->
+    <section id="evenements" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-20 text-center reveal">
+                <h3 class="text-4xl font-folklorique text-slate-900 mb-4 uppercase">Activités & Traditions</h3>
+                <p class="text-slate-500 italic">Découvrez les temps forts de notre régionale.</p>
+            </div>
+
+            <!-- CONTENEUR DES ÉVÉNEMENTS (Un bloc = Un module) -->
+            <div class="space-y-32">
+
+                <!-- MODULE : BAPTÊME -->
+                <div class="reveal flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1000" alt="Baptême" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Septembre / Octobre</span>
+                            <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-widest">LLN - Quartier Hocaille</span>
+                        </div>
+                        <h4 class="text-4xl font-serif">Baptême & Barbecue d'Accueil</h4>
+                        <p class="text-slate-700 leading-relaxed">Rencontre avec les futurs étudiants. Un moment convivial pour expliquer le folklore et intégrer les nouveaux loups dans la régionale.</p>
+                        <!-- Section Sponsor Modulable -->
+                        <div class="flex items-center gap-4 text-xs font-bold text-slate-400 italic">
+                            <i class="fas fa-handshake"></i>
+                            <span>Activités soutenue par nos partenaires locaux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODULE : 24H VELO -->
+                <div class="reveal flex flex-col md:flex-row-reverse items-center gap-12">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right">
+                        <img src="https://images.unsplash.com/photo-1541625602330-2277a4c4b082?q=80&w=1000" alt="24h Vélo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <div class="flex flex-wrap gap-2 md:justify-start">
+                            <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Octobre</span>
+                            <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-widest">Louvain-la-Neuve</span>
+                        </div>
+                        <h4 class="text-4xl font-serif">Les 24 Heures Vélo</h4>
+                        <p class="text-slate-700 leading-relaxed">Bar emblématique et construction d'un vélo folklorique géant. Nous représentons la Région du Centre dans la course la plus folle de Belgique.</p>
+                    </div>
+                </div>
+
+                <!-- MODULE : SEMAINE CULTURELLE (Lundi-Mardi) -->
+                <div class="reveal flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?q=80&w=1000" alt="Culture" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Novembre</span>
+                        <h4 class="text-4xl font-serif">La Semaine Culturelle</h4>
+                        <div class="space-y-4 pt-4 border-l-2 border-blue-200 pl-6">
+                            <p><strong>Lundi :</strong> Soupe & Burger Interrégional.</p>
+                            <p><strong>Mardi :</strong> Brunch qualitatif au profit d'une ASBL locale.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODULE SPECIAL : MERCREDI CARNAVAL LLN (Mise en avant massive) -->
+                <div class="reveal relative py-16 px-8 md:px-16 bg-slate-900 text-white rounded-[40px] overflow-hidden">
+                    <div class="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1200')] bg-cover bg-center"></div>
+                    <div class="relative z-10 flex flex-col md:flex-row items-center gap-12">
+                        <div class="md:w-2/3 space-y-6">
+                            <div class="inline-block px-4 py-1 bg-yellow-500 text-slate-900 rounded-full text-xs font-bold uppercase tracking-tighter animate-pulse">Événement Majeur (+1000 Personnes)</div>
+                            <h4 class="text-5xl md:text-7xl font-folklorique text-white leading-tight">Mercredi Culturel :<br>Le Carnaval de la Louvière à LLN</h4>
+                            <p class="text-xl text-slate-300 font-light leading-relaxed">
+                                Nous recréons l'effervescence du carnaval de La Louvière au cœur de Louvain-la-Neuve. Un rassemblement massif, folklorique et inoubliable ouvert à tous.
+                            </p>
+                            <div class="flex items-center gap-6 pt-4">
+                                <div class="text-center">
+                                    <span class="block text-3xl font-bold text-yellow-500">1000+</span>
+                                    <span class="text-[10px] uppercase text-slate-400">Participants</span>
+                                </div>
+                                <div class="w-px h-10 bg-slate-700"></div>
+                                <div class="text-center">
+                                    <span class="block text-3xl font-bold text-yellow-500">1</span>
+                                    <span class="text-[10px] uppercase text-slate-400">Région Unie</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/3 text-center md:text-right">
+                             <div class="p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
+                                <p class="text-xs font-bold uppercase mb-4 text-yellow-500">Sponsor Officiel :</p>
+                                <img src="https://via.placeholder.com/150x80?text=ST-FEUILLIEN" alt="Sponsor" class="mx-auto md:ml-auto brightness-200">
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODULE : WEEKEND COMITE -->
+                <div class="reveal flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1521459467264-802e2ef3141f?q=80&w=1000" alt="Comité" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Vie de Meute</span>
+                        <h4 class="text-4xl font-serif italic">Le Weekend Comité</h4>
+                        <p class="text-slate-700">Moment privilégié pour le comité et les membres les plus investis. Trois jours de cohésion, de stratégie pour la régionale et de découverte d'une nouvelle région belge.</p>
+                    </div>
+                </div>
+
+                <!-- MODULE : BANQUET & 130 ANS -->
+                <div class="reveal relative p-12 bg-white border-4 border-double border-slate-200 rounded-[50px] text-center">
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-white px-6">
+                        <i class="fas fa-crown text-3xl text-yellow-600"></i>
+                    </div>
+                    <h4 class="text-5xl font-folklorique mb-6">Le Banquet de la Centrale</h4>
+                    <p class="text-2xl font-serif italic text-blue-900 mb-4">Célébration des 130 ans</p>
+                    <div class="w-20 h-px bg-slate-300 mx-auto mb-8"></div>
+                    <p class="max-w-2xl mx-auto text-slate-600 leading-relaxed mb-8">
+                        Le point culminant de l'année. Un banquet prestigieux réunissant anciens et nouveaux membres pour fêter plus d'un siècle d'existence. Une soirée de gala sous le signe de l'histoire et de la transmission.
+                    </p>
+                    <div class="flex justify-center gap-8 items-center opacity-60 grayscale">
+                        <img src="https://via.placeholder.com/100x50?text=PARTENAIRE" alt="Logo">
+                        <img src="https://via.placeholder.com/100x50?text=PARTENAIRE" alt="Logo">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PARTENAIRES ACTUELS -->
+    <section id="partenaires" class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h3 class="text-3xl font-serif italic mb-2">Ils nous soutiennent déjà</h3>
+                <p class="text-slate-400 uppercase tracking-widest text-[10px] font-bold">Nos Partenaires de Confiance</p>
+            </div>
+            
+            <!-- LISTE DES PARTENAIRES (Ajouter vos logos ici) -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 items-center justify-items-center">
+                <div class="text-center group">
+                    <img src="https://via.placeholder.com/120x80?text=LOGO+1" alt="Partenaire" class="partner-logo mb-2">
+                    <p class="text-[10px] font-bold text-slate-400 group-hover:text-slate-900 transition uppercase">Brasserie St-Feuillien</p>
+                </div>
+                <div class="text-center group">
+                    <img src="https://via.placeholder.com/120x80?text=LOGO+2" alt="Partenaire" class="partner-logo mb-2">
+                    <p class="text-[10px] font-bold text-slate-400 group-hover:text-slate-900 transition uppercase">Ville de La Louvière</p>
+                </div>
+                <div class="text-center group">
+                    <img src="https://via.placeholder.com/120x80?text=LOGO+3" alt="Partenaire" class="partner-logo mb-2">
+                    <p class="text-[10px] font-bold text-slate-400 group-hover:text-slate-900 transition uppercase">Imprimerie Centrale</p>
+                </div>
+                <div class="text-center group">
+                    <img src="https://via.placeholder.com/120x80?text=LOGO+4" alt="Partenaire" class="partner-logo mb-2">
+                    <p class="text-[10px] font-bold text-slate-400 group-hover:text-slate-900 transition uppercase">Boucherie du Centre</p>
+                </div>
+                <div class="text-center group">
+                    <img src="https://via.placeholder.com/120x80?text=LOGO+5" alt="Partenaire" class="partner-logo mb-2">
+                    <p class="text-[10px] font-bold text-slate-400 group-hover:text-slate-900 transition uppercase">Banque Locale</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION SPONSORING -->
+    <section class="py-32 bg-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="md:flex items-center gap-20">
+                <div class="md:w-1/2 space-y-8 reveal">
+                    <h3 class="text-5xl font-serif">Devenir <br><span class="text-blue-400 italic">Partenaire Officiel</span></h3>
+                    <p class="text-lg text-slate-400 font-light leading-relaxed">
+                        Associez votre image à une institution estudiantine dynamique de 120 membres et accédez à une audience de milliers d'étudiants à LLN.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-4"><i class="fas fa-check-circle text-blue-500"></i> Visibilité sur textiles (120 pulls)</li>
+                        <li class="flex items-center gap-4"><i class="fas fa-check-circle text-blue-500"></i> Présence sur les événements phares (+1000 pers.)</li>
+                        <li class="flex items-center gap-4"><i class="fas fa-check-circle text-blue-500"></i> Campagnes Instagram & Facebook ciblées</li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2 mt-12 md:mt-0 reveal">
+                    <div class="bg-white p-12 rounded-[40px] text-slate-900 text-center space-y-6 shadow-2xl">
+                        <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-6 rotate-3">
+                            <i class="fas fa-handshake text-4xl"></i>
+                        </div>
+                        <h4 class="text-3xl font-serif italic">Espace Sponsoring</h4>
+                        <p class="text-slate-500 text-sm">Téléchargez notre brochure détaillée pour découvrir nos packs et opportunités commerciales.</p>
+                        <a href="docs/dossier_sponsoring_centrale.pdf" download class="btn-wolf w-full py-4 rounded-xl font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-3">
+                            <i class="fas fa-file-pdf text-xl"></i> Dossier Sponsoring 2024-2025
+                        </a>
+                        <p class="text-[10px] text-slate-300 font-bold uppercase">Format PDF - 4.2 MB</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <footer id="contact" class="bg-white py-20 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-folklorique mb-12">Contactez la Meute</h2>
+            <div class="flex flex-wrap justify-center gap-12 mb-16 font-bold text-slate-800">
+                <a href="mailto:comite@regionale-centre.be" class="flex flex-col items-center gap-4 hover:text-blue-600 transition group">
+                    <div class="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-blue-50 transition"><i class="fas fa-envelope"></i></div>
+                    <span class="text-xs uppercase tracking-widest">Email Officiel</span>
+                </a>
+                <a href="#" class="flex flex-col items-center gap-4 hover:text-pink-600 transition group">
+                    <div class="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-pink-50 transition"><i class="fab fa-instagram"></i></div>
+                    <span class="text-xs uppercase tracking-widest">Instagram</span>
+                </a>
+                <a href="#" class="flex flex-col items-center gap-4 hover:text-blue-800 transition group">
+                    <div class="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-blue-50 transition"><i class="fab fa-facebook"></i></div>
+                    <span class="text-xs uppercase tracking-widest">Facebook</span>
+                </a>
+            </div>
+            <p class="text-slate-400 text-[10px] uppercase tracking-[0.3em]">&copy; 2024 La Régionale du Centre • Louvain-la-Neuve • Amitiés & Folklore</p>
+        </div>
+    </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(el => {
+                var windowHeight = window.innerHeight;
+                var elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) el.classList.add("active");
+            });
+        }
+        window.addEventListener("scroll", reveal);
+        window.onload = reveal;
+    </script>
+</body>
+</html>
