@@ -251,14 +251,14 @@
 
     <!-- NAVIGATION -->
     <nav class="fixed w-full z-50 nav-glass border-b border-white/20">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex flex-wrap justify-between items-center gap-4">
             <div class="flex items-center gap-3">
                 <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md overflow-hidden">
                     <img src="images/logo_blason.png" alt="Blason Centrale" onerror="this.src='https://via.placeholder.com/50x50?text=🐺'" class="w-full h-full object-contain">
                 </div>
                 <span class="text-2xl font-folklorique text-slate-800">La Centrale</span>
             </div>
-            <div class="hidden md:flex space-x-8 font-bold text-sm uppercase tracking-widest text-slate-900">
+            <div class="flex flex-wrap justify-center md:justify-end gap-3 md:gap-0 md:space-x-8 font-bold text-sm uppercase tracking-widest text-slate-900">
                 <a href="#accueil" class="hover:text-white transition">Accueil</a>
                 <a href="#evenements" class="hover:text-white transition">Événements</a>
                 <a href="#partenaires" class="hover:text-white transition">Partenaires</a>
@@ -292,7 +292,7 @@
     <section id="evenements" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-20 text-center reveal">
-                <h3 class="text-4xl font-folklorique text-slate-900 mb-4 uppercase">Activités & Traditions</h3>
+                <h3 class="text-4xl font-serif text-slate-900 mb-4 uppercase tracking-tight">Activités & Traditions</h3>
                 <p class="text-slate-500 italic">Découvrez les temps forts de notre régionale.</p>
             </div>
 
@@ -301,7 +301,7 @@
 
                 <!-- MODULE : BAPTÊME -->
                 <div class="reveal flex flex-col md:flex-row items-center gap-12">
-                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl hidden md:block">
                         <img src="images/bapteme.png" alt="Baptême" class="w-full h-full object-cover">
                     </div>
                     <div class="w-full md:w-1/2 space-y-6">
@@ -310,6 +310,9 @@
                             <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-widest">LLN - Place des paniers</span>
                         </div>
                         <h4 class="text-4xl font-serif">Baptême & Barbecue d'Accueil</h4>
+                        <div class="event-image md:hidden h-[250px] rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="images/bapteme.png" alt="Baptême" class="w-full h-full object-cover">
+                        </div>
                         <p class="text-slate-700 leading-relaxed">Rencontre avec les futurs étudiants. Un moment convivial pour expliquer le folklore et intégrer les nouveaux loups dans la régionale.</p>
                         <!-- Section Sponsor Modulable -->
                         <div class="flex items-center gap-4 text-xs font-bold text-slate-400 italic">
@@ -319,12 +322,15 @@
 
                 <!-- MODULE : SOIRÉES -->
                 <div class="reveal flex flex-col md:flex-row-reverse items-center gap-12">
-                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right hidden md:block">
                         <img src="images/soirées.jpeg" alt="Soirées" class="w-full h-full object-cover">
                     </div>
                     <div class="w-full md:w-1/2 space-y-6">
                         <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Toute l'Année</span>
                         <h4 class="text-4xl font-serif">De Nombreuses Soirées</h4>
+                        <div class="event-image md:hidden h-[250px] rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="images/soirées.jpeg" alt="Soirées" class="w-full h-full object-cover">
+                        </div>
                         <p class="text-slate-700 leading-relaxed">Des soirées régulières pour renforcer les liens entre membres et célébrer notre folklore.</p>
                         <div class="flex items-center gap-3 pt-2">
                             <span class="text-xs font-bold text-slate-400 uppercase">Avec :</span>
@@ -336,7 +342,7 @@
 
                 <!-- MODULE : 24H VELO -->
                 <div class="reveal flex flex-col md:flex-row items-center gap-12">
-                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl hidden md:block">
                         <img src="images/24h-velo.png" alt="24h Vélo" class="w-full h-full object-cover">
                     </div>
                     <div class="w-full md:w-1/2 space-y-6">
@@ -345,6 +351,9 @@
                             <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-widest">Louvain-la-Neuve</span>
                         </div>
                         <h4 class="text-4xl font-serif">Les 24 Heures Vélo</h4>
+                        <div class="event-image md:hidden h-[250px] rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="images/24h-velo.png" alt="24h Vélo" class="w-full h-full object-cover">
+                        </div>
                         <p class="text-slate-700 leading-relaxed">Bar emblématique et construction d'un vélo folklorique géant. Nous représentons la Région du Centre dans la course la plus folle de Belgique.</p>
                         <div class="flex items-center gap-3 pt-2">
                             <span class="text-xs font-bold text-slate-400 uppercase">Avec :</span>
@@ -356,12 +365,15 @@
 
                 <!-- MODULE : SUNTRALE FESTIVAL -->
                 <div class="reveal flex flex-col md:flex-row-reverse items-center gap-12">
-                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right hidden md:block">
                         <img src="images/suntrale.jpg" alt="Suntrale Festival" class="w-full h-full object-cover">
                     </div>
                     <div class="w-full md:w-1/2 space-y-6">
                         <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Fin septembre</span>
                         <h4 class="text-4xl font-serif">Suntrale Festival en Plein Air</h4>
+                        <div class="event-image md:hidden h-[250px] rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="images/suntrale.jpg" alt="Suntrale Festival" class="w-full h-full object-cover">
+                        </div>
                         <p class="text-slate-700 leading-relaxed">Festival organisé en plein air par la Centrale, célébrant la musique et la bonne ambiance de fin d'été</p>
                         <div class="flex items-center gap-3 pt-2">
                             <span class="text-xs font-bold text-slate-400 uppercase">Avec :</span>
@@ -372,12 +384,15 @@
 
                 <!-- MODULE : L'OUVERTURE -->
                 <div class="reveal flex flex-col md:flex-row items-center gap-12">
-                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl hidden md:block">
                         <img src="images/ouverture.jpg" alt="L'Ouverture" class="w-full h-full object-cover">
                     </div>
                     <div class="w-full md:w-1/2 space-y-6">
-                        <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Novmebre</span>
+                        <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Novembre</span>
                         <h4 class="text-4xl font-serif">L'Ouverture</h4>
+                        <div class="event-image md:hidden h-[250px] rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="images/ouverture.jpg" alt="L'Ouverture" class="w-full h-full object-cover">
+                        </div>
                         <p class="text-slate-700 leading-relaxed">Le coup d'envoi de l'année folklore. Une journée festive qui marque le début des activités de la Centrale avec énergie, tradition et convivialité.</p>
                     </div>
                 </div>
@@ -397,7 +412,7 @@
                 <!-- MODULE : SEMAINE CULTURELLE (Lundi-Mardi) -->
                 <div class="reveal flex flex-col md:flex-row items-center gap-12">
                     <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl">
-                        <img src="images/culture.png" alt="Culture" class="w-full h-full object-cover">
+                        <img src="images/brunch.jpg" alt="Culture" class="w-full h-full object-cover">
                     </div>
                     <div class="w-full md:w-1/2 space-y-6">
                         <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Novembre</span>
@@ -411,7 +426,7 @@
                 </div>
 
                 <!-- MODULE SPECIAL : MERCREDI CARNAVAL LLN (Mise en avant massive) -->
-                <div class="reveal relative py-24 md:py-32 px-8 md:px-16 bg-slate-900 text-white rounded-[40px] overflow-hidden my-16">
+                <div class="reveal relative py-24 md:py-32 px-8 md:px-16 bg-slate-900 text-white rounded-[40px] overflow-hidden my-24">
                     <div class="absolute inset-0 opacity-40 bg-[url('images/carnaval.jpg')] bg-cover bg-center"></div>
                     <div class="relative z-10 flex flex-col md:flex-row items-center gap-12">
                         <div class="md:w-2/3 space-y-6">
@@ -432,19 +447,26 @@
                                 </div>
                             </div>
                         </div>
-                        
+                        <div class="md:w-1/3 text-center md:text-right">
+                            <div class="p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
+                                <p class="text-xs font-bold uppercase mb-4 text-yellow-500">Sponsor Officiel :</p>
+                                <img src="https://via.placeholder.com/150x80?text=ST-FEUILLIEN" alt="Sponsor" class="mx-auto md:ml-auto brightness-200">
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- MODULE : BAR CARNAVAL -->
                 <div class="reveal flex flex-col md:flex-row-reverse items-center gap-12 mb-20">
-                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right hidden md:block">
                         <img src="images/téléchargement (1).jpeg" alt="Bar Carnaval" class="w-full h-full object-cover">
                     </div>
                     <div class="w-full md:w-1/2 space-y-6">
                         <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Carnaval</span>
                         <h4 class="text-4xl font-serif">Bar au Carnaval de La Louvière et à la Simpélourd à Soignies</h4>
+                        <div class="event-image md:hidden h-[250px] rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="images/téléchargement (1).jpeg" alt="Bar Carnaval" class="w-full h-full object-cover">
+                        </div>
                         <p class="text-slate-700 leading-relaxed">Tenue de bar lors des célèbres carnavals de La Louvière et de la Simpélourd à Soignies.</p>
                         <div class="flex items-center gap-3 pt-2">
                             <span class="text-xs font-bold text-slate-400 uppercase">Avec :</span>
@@ -456,24 +478,30 @@
 
                 <!-- MODULE : DÉCORS SEMAINE FÉDÉ -->
                 <div class="reveal flex flex-col md:flex-row items-center gap-12 mb-20">
-                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl hidden md:block">
                         <img src="images/décors.png" alt="Décors" class="w-full h-full object-cover">
                     </div>
                     <div class="w-full md:w-1/2 space-y-6">
                         <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Semaine Fédé</span>
                         <h4 class="text-4xl font-serif">Création de Décors lors de la Semaine Fédé</h4>
+                        <div class="event-image md:hidden h-[250px] rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="images/décors.png" alt="Décors" class="w-full h-full object-cover">
+                        </div>
                         <p class="text-slate-700 leading-relaxed">Nous créons des décors spectaculaires pour la semaine fédérale, ajoutant à la magie de l'événement.</p>
                     </div>
                 </div>
 
                 <!-- MODULE : DÉGUSTATION EN TERRASSE ST-FEUILLIEN -->
                 <div class="reveal flex flex-col md:flex-row-reverse items-center gap-12 mb-20">
-                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right hidden md:block">
                         <img src="images/terrasse st feu.jpg" alt="Dégustation" class="w-full h-full object-cover">
                     </div>
                     <div class="w-full md:w-1/2 space-y-6">
                         <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Printemps</span>
                         <h4 class="text-4xl font-serif">Dégustation en Terrasse St-Feuillien</h4>
+                        <div class="event-image md:hidden h-[250px] rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="images/terrasse st feu.jpg" alt="Dégustation" class="w-full h-full object-cover">
+                        </div>
                         <p class="text-slate-700 leading-relaxed">Une soirée conviviale en terrasse pour savourer les spécialités de la brasserie St-Feuillien. Un moment d'échange et de détente entre membres et amis de la Centrale.</p>
                         <div class="flex items-center gap-3 pt-2">
                             <span class="text-xs font-bold text-slate-400 uppercase">Avec :</span>
@@ -484,12 +512,15 @@
 
                 <!-- MODULE : WEEKEND COMITE -->
                 <div class="reveal flex flex-col md:flex-row items-center gap-12 mb-20">
-                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl hidden md:block">
                         <img src="images/comité.jpg" alt="Comité" class="w-full h-full object-cover">
                     </div>
                     <div class="w-full md:w-1/2 space-y-6">
                         <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Weekend familial</span>
                         <h4 class="text-4xl font-serif italic">Le Weekend Comité</h4>
+                        <div class="event-image md:hidden h-[250px] rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="images/comité.jpg" alt="Comité" class="w-full h-full object-cover">
+                        </div>
                         <p class="text-slate-700">Moment privilégié pour le comité et les membres les plus investis. Trois jours de cohésion, de partage pour la régionale et de découverte d'une nouvelle région belge avec une activité culturelle.</p>
                     </div>
                 </div>
@@ -505,20 +536,20 @@
                     <p class="max-w-2xl mx-auto text-slate-600 leading-relaxed mb-8">
                         Célébration du 130e anniversaire de la Centrale. Un moment historique pour honorer notre passé et notre avenir, réunissant tous les membres autour de notre histoire riche.
                     </p>
-                    <div class="flex justify-center gap-8 items-center opacity-60 grayscale">
-                        <img src="https://via.placeholder.com/100x50?text=PARTENAIRE" alt="Logo">
-                        <img src="https://via.placeholder.com/100x50?text=PARTENAIRE" alt="Logo">
-                    </div>
+                    
                 </div>
 
                 <!-- MODULE : BANQUET -->
                 <div class="reveal flex flex-col md:flex-row-reverse items-center gap-12">
-                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right hidden md:block">
                         <img src="images/banquet.jpeg" alt="Banquet" class="w-full h-full object-cover">
                     </div>
                     <div class="w-full md:w-1/2 space-y-6">
                         <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Fin d'Année</span>
                         <h4 class="text-4xl font-serif">Le Banquet de la Centrale</h4>
+                        <div class="event-image md:hidden h-[250px] rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="images/banquet.jpeg" alt="Banquet" class="w-full h-full object-cover">
+                        </div>
                         <p class="text-slate-700 leading-relaxed">Le point culminant de l'année. Un banquet prestigieux réunissant anciens et nouveaux membres. Une soirée de gala sous le signe de l'histoire et de la transmission.</p>
                         <div class="flex items-center gap-3 pt-2">
                             <span class="text-xs font-bold text-slate-400 uppercase">Avec :</span>
