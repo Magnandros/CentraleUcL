@@ -24,19 +24,88 @@
         .font-folklorique { font-family: 'UnifrakturMaguntia', cursive; }
         .font-serif { font-family: 'Playfair Display', serif; }
 
+        /* Animations et transitions premium */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 10px rgba(137, 179, 224, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(137, 179, 224, 0.6); }
+        }
+
         .reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
+        /* Animation pour les images d'événements */
+        .event-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .event-image:hover img {
+            transform: scale(1.08) brightness(1.15);
+            filter: brightness(1.15);
+        }
+
+        .event-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .event-image:hover::after {
+            opacity: 1;
+        }
+
         .nav-glass {
             background: rgba(137, 179, 224, 0.85);
             backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        .nav-glass:hover {
+            box-shadow: 0 8px 32px rgba(137, 179, 224, 0.2);
         }
 
         .wolf-gradient {
@@ -46,23 +115,135 @@
         .btn-wolf {
             background-color: var(--centrale-wolf);
             color: white;
-            transition: all 0.3s;
-        }
-        .btn-wolf:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(166, 77, 46, 0.3);
-            background-color: #8e3f24;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
         }
 
+        .btn-wolf::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-wolf:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(166, 77, 46, 0.4);
+            background-color: #8e3f24;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-wolf:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Animation sponsor badges */
         .partner-logo {
             filter: grayscale(100%);
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             opacity: 0.7;
+            position: relative;
         }
+
         .partner-logo:hover {
             filter: grayscale(0%);
             opacity: 1;
-            transform: scale(1.1);
+            transform: scale(1.12) rotate(-1deg);
+            box-shadow: 0 10px 30px rgba(137, 179, 224, 0.3);
+        }
+
+        /* Animation pour les badges de partenaires */
+        .bg-amber-100 {
+            transition: all 0.3s ease;
+        }
+
+        .group:hover .bg-amber-100 {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(166, 77, 46, 0.2);
+        }
+
+        /* Effet hover sur les cartes */
+        .group {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .group:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Liens avec animation fancy */
+        a:not(.btn-wolf) {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        a:not(.btn-wolf)::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--centrale-blue);
+            transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        a:not(.btn-wolf):hover::after {
+            width: 100%;
+        }
+
+        /* Animations des badges */
+        .px-3.py-1 {
+            transition: all 0.3s ease;
+        }
+
+        .reveal:hover .px-3.py-1 {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Texte avec transition */
+        h1, h2, h3, h4 {
+            transition: all 0.4s ease;
+        }
+
+        .reveal:hover h4 {
+            color: var(--centrale-blue);
+        }
+
+        /* Footer contact animation */
+        footer a {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        footer a:hover {
+            transform: translateY(-8px) scale(1.1);
+        }
+
+        footer .fa-envelope:before {
+            transition: all 0.4s ease;
+        }
+
+        footer a:hover .fa-envelope {
+            animation: slideInRight 0.6s ease;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(-5px); }
+            to { transform: translateX(0); }
         }
     </style>
 </head>
@@ -99,7 +280,7 @@
                 Le folklore du Centre brille à Louvain-la-Neuve. <span class="font-bold">120 membres actifs</span>, une meute soudée pour l'éternité.
             </p>
             <div class="mt-12">
-                <a href="#evenements" class="btn-wolf px-10 py-4 rounded-full text-lg font-bold shadow-xl uppercase tracking-widest text-sm">Calendrier de la Meute</a>
+                <a href="#evenements" class="btn-wolf px-10 py-4 rounded-full text-lg font-bold shadow-xl uppercase tracking-widest text-sm">Calendrier des événements</a>
             </div>
         </div>
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
@@ -121,27 +302,42 @@
                 <!-- MODULE : BAPTÊME -->
                 <div class="reveal flex flex-col md:flex-row items-center gap-12">
                     <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1000" alt="Baptême" class="w-full h-full object-cover">
+                        <img src="images/bapteme.png" alt="Baptême" class="w-full h-full object-cover">
                     </div>
                     <div class="w-full md:w-1/2 space-y-6">
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Septembre / Octobre</span>
-                            <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-widest">LLN - Quartier Hocaille</span>
+                            <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-widest">LLN - Place des paniers</span>
                         </div>
                         <h4 class="text-4xl font-serif">Baptême & Barbecue d'Accueil</h4>
                         <p class="text-slate-700 leading-relaxed">Rencontre avec les futurs étudiants. Un moment convivial pour expliquer le folklore et intégrer les nouveaux loups dans la régionale.</p>
                         <!-- Section Sponsor Modulable -->
                         <div class="flex items-center gap-4 text-xs font-bold text-slate-400 italic">
-                            <i class="fas fa-handshake"></i>
-                            <span>Activités soutenue par nos partenaires locaux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODULE : SOIRÉES -->
+                <div class="reveal flex flex-col md:flex-row-reverse items-center gap-12">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right">
+                        <img src="images/soirées.jpeg" alt="Soirées" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Toute l'Année</span>
+                        <h4 class="text-4xl font-serif">De Nombreuses Soirées</h4>
+                        <p class="text-slate-700 leading-relaxed">Des soirées régulières pour renforcer les liens entre membres et célébrer notre folklore.</p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <span class="text-xs font-bold text-slate-400 uppercase">Avec :</span>
+                            <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-bold uppercase tracking-widest">St-Feuillien</span>
+                            <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-bold uppercase tracking-widest">Kasteel</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- MODULE : 24H VELO -->
-                <div class="reveal flex flex-col md:flex-row-reverse items-center gap-12">
-                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right">
-                        <img src="https://images.unsplash.com/photo-1541625602330-2277a4c4b082?q=80&w=1000" alt="24h Vélo" class="w-full h-full object-cover">
+                <div class="reveal flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="images/24h-velo.png" alt="24h Vélo" class="w-full h-full object-cover">
                     </div>
                     <div class="w-full md:w-1/2 space-y-6">
                         <div class="flex flex-wrap gap-2 md:justify-start">
@@ -150,13 +346,58 @@
                         </div>
                         <h4 class="text-4xl font-serif">Les 24 Heures Vélo</h4>
                         <p class="text-slate-700 leading-relaxed">Bar emblématique et construction d'un vélo folklorique géant. Nous représentons la Région du Centre dans la course la plus folle de Belgique.</p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <span class="text-xs font-bold text-slate-400 uppercase">Avec :</span>
+                            <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-bold uppercase tracking-widest">St-Feuillien</span>
+                            <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-bold uppercase tracking-widest">Kasteel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODULE : SUNTRALE FESTIVAL -->
+                <div class="reveal flex flex-col md:flex-row-reverse items-center gap-12">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right">
+                        <img src="images/suntrale.jpg" alt="Suntrale Festival" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Fin septembre</span>
+                        <h4 class="text-4xl font-serif">Suntrale Festival en Plein Air</h4>
+                        <p class="text-slate-700 leading-relaxed">Festival organisé en plein air par la Centrale, célébrant la musique et la bonne ambiance de fin d'été</p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <span class="text-xs font-bold text-slate-400 uppercase">Avec :</span>
+                            <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-bold uppercase tracking-widest">Kasteel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODULE : L'OUVERTURE -->
+                <div class="reveal flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="images/ouverture.jpg" alt="L'Ouverture" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Novmebre</span>
+                        <h4 class="text-4xl font-serif">L'Ouverture</h4>
+                        <p class="text-slate-700 leading-relaxed">Le coup d'envoi de l'année folklore. Une journée festive qui marque le début des activités de la Centrale avec énergie, tradition et convivialité.</p>
+                    </div>
+                </div>
+
+                <!-- MODULE : CARNAVAL FÉDÉ -->
+                <div class="reveal flex flex-col md:flex-row-reverse items-center gap-12">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right">
+                        <img src="images/carnaval-féfé.png" alt="Carnaval Fédé" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Carnaval</span>
+                        <h4 class="text-4xl font-serif">Participation au Carnaval Fédé</h4>
+                        <p class="text-slate-700 leading-relaxed">Nous participons activement au carnaval fédé, avec un spectacle et des décors magnifiques.</p>
                     </div>
                 </div>
 
                 <!-- MODULE : SEMAINE CULTURELLE (Lundi-Mardi) -->
                 <div class="reveal flex flex-col md:flex-row items-center gap-12">
                     <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?q=80&w=1000" alt="Culture" class="w-full h-full object-cover">
+                        <img src="images/culture.png" alt="Culture" class="w-full h-full object-cover">
                     </div>
                     <div class="w-full md:w-1/2 space-y-6">
                         <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Novembre</span>
@@ -164,13 +405,14 @@
                         <div class="space-y-4 pt-4 border-l-2 border-blue-200 pl-6">
                             <p><strong>Lundi :</strong> Soupe & Burger Interrégional.</p>
                             <p><strong>Mardi :</strong> Brunch qualitatif au profit d'une ASBL locale.</p>
+                            <p><strong>Mercredi :</strong> Représentation de notre folklore.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- MODULE SPECIAL : MERCREDI CARNAVAL LLN (Mise en avant massive) -->
-                <div class="reveal relative py-16 px-8 md:px-16 bg-slate-900 text-white rounded-[40px] overflow-hidden">
-                    <div class="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1200')] bg-cover bg-center"></div>
+                <div class="reveal relative py-24 md:py-32 px-8 md:px-16 bg-slate-900 text-white rounded-[40px] overflow-hidden my-16">
+                    <div class="absolute inset-0 opacity-40 bg-[url('images/carnaval.jpg')] bg-cover bg-center"></div>
                     <div class="relative z-10 flex flex-col md:flex-row items-center gap-12">
                         <div class="md:w-2/3 space-y-6">
                             <div class="inline-block px-4 py-1 bg-yellow-500 text-slate-900 rounded-full text-xs font-bold uppercase tracking-tighter animate-pulse">Événement Majeur (+1000 Personnes)</div>
@@ -190,41 +432,99 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="md:w-1/3 text-center md:text-right">
-                             <div class="p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
-                                <p class="text-xs font-bold uppercase mb-4 text-yellow-500">Sponsor Officiel :</p>
-                                <img src="https://via.placeholder.com/150x80?text=ST-FEUILLIEN" alt="Sponsor" class="mx-auto md:ml-auto brightness-200">
-                             </div>
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODULE : BAR CARNAVAL -->
+                <div class="reveal flex flex-col md:flex-row-reverse items-center gap-12 mb-20">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right">
+                        <img src="images/téléchargement (1).jpeg" alt="Bar Carnaval" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Carnaval</span>
+                        <h4 class="text-4xl font-serif">Bar au Carnaval de La Louvière et à la Simpélourd à Soignies</h4>
+                        <p class="text-slate-700 leading-relaxed">Tenue de bar lors des célèbres carnavals de La Louvière et de la Simpélourd à Soignies.</p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <span class="text-xs font-bold text-slate-400 uppercase">Avec :</span>
+                            <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-bold uppercase tracking-widest">St-Feuillien</span>
+                            <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-bold uppercase tracking-widest">Kasteel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODULE : DÉCORS SEMAINE FÉDÉ -->
+                <div class="reveal flex flex-col md:flex-row items-center gap-12 mb-20">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="images/décors.png" alt="Décors" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Semaine Fédé</span>
+                        <h4 class="text-4xl font-serif">Création de Décors lors de la Semaine Fédé</h4>
+                        <p class="text-slate-700 leading-relaxed">Nous créons des décors spectaculaires pour la semaine fédérale, ajoutant à la magie de l'événement.</p>
+                    </div>
+                </div>
+
+                <!-- MODULE : DÉGUSTATION EN TERRASSE ST-FEUILLIEN -->
+                <div class="reveal flex flex-col md:flex-row-reverse items-center gap-12 mb-20">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right">
+                        <img src="images/terrasse st feu.jpg" alt="Dégustation" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Printemps</span>
+                        <h4 class="text-4xl font-serif">Dégustation en Terrasse St-Feuillien</h4>
+                        <p class="text-slate-700 leading-relaxed">Une soirée conviviale en terrasse pour savourer les spécialités de la brasserie St-Feuillien. Un moment d'échange et de détente entre membres et amis de la Centrale.</p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <span class="text-xs font-bold text-slate-400 uppercase">Avec :</span>
+                            <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-bold uppercase tracking-widest">St-Feuillien</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- MODULE : WEEKEND COMITE -->
-                <div class="reveal flex flex-col md:flex-row items-center gap-12">
+                <div class="reveal flex flex-col md:flex-row items-center gap-12 mb-20">
                     <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1521459467264-802e2ef3141f?q=80&w=1000" alt="Comité" class="w-full h-full object-cover">
+                        <img src="images/comité.jpg" alt="Comité" class="w-full h-full object-cover">
                     </div>
                     <div class="w-full md:w-1/2 space-y-6">
-                        <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Vie de Meute</span>
+                        <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Weekend familial</span>
                         <h4 class="text-4xl font-serif italic">Le Weekend Comité</h4>
-                        <p class="text-slate-700">Moment privilégié pour le comité et les membres les plus investis. Trois jours de cohésion, de stratégie pour la régionale et de découverte d'une nouvelle région belge.</p>
+                        <p class="text-slate-700">Moment privilégié pour le comité et les membres les plus investis. Trois jours de cohésion, de partage pour la régionale et de découverte d'une nouvelle région belge avec une activité culturelle.</p>
                     </div>
                 </div>
 
-                <!-- MODULE : BANQUET & 130 ANS -->
+                <!-- MODULE : 130 ANS -->
                 <div class="reveal relative p-12 bg-white border-4 border-double border-slate-200 rounded-[50px] text-center">
                     <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-white px-6">
                         <i class="fas fa-crown text-3xl text-yellow-600"></i>
                     </div>
-                    <h4 class="text-5xl font-folklorique mb-6">Le Banquet de la Centrale</h4>
-                    <p class="text-2xl font-serif italic text-blue-900 mb-4">Célébration des 130 ans</p>
+                    <h4 class="text-5xl font-folklorique mb-6">Célébration des 130 ans</h4>
+                    <p class="text-2xl font-serif italic text-blue-900 mb-4">La Centrale fête son anniversaire</p>
                     <div class="w-20 h-px bg-slate-300 mx-auto mb-8"></div>
                     <p class="max-w-2xl mx-auto text-slate-600 leading-relaxed mb-8">
-                        Le point culminant de l'année. Un banquet prestigieux réunissant anciens et nouveaux membres pour fêter plus d'un siècle d'existence. Une soirée de gala sous le signe de l'histoire et de la transmission.
+                        Célébration du 130e anniversaire de la Centrale. Un moment historique pour honorer notre passé et notre avenir, réunissant tous les membres autour de notre histoire riche.
                     </p>
                     <div class="flex justify-center gap-8 items-center opacity-60 grayscale">
                         <img src="https://via.placeholder.com/100x50?text=PARTENAIRE" alt="Logo">
                         <img src="https://via.placeholder.com/100x50?text=PARTENAIRE" alt="Logo">
+                    </div>
+                </div>
+
+                <!-- MODULE : BANQUET -->
+                <div class="reveal flex flex-col md:flex-row-reverse items-center gap-12">
+                    <div class="w-full md:w-1/2 h-[400px] rounded-3xl overflow-hidden shadow-2xl text-right">
+                        <img src="images/banquet.jpeg" alt="Banquet" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-[10px] font-bold uppercase tracking-widest">Fin d'Année</span>
+                        <h4 class="text-4xl font-serif">Le Banquet de la Centrale</h4>
+                        <p class="text-slate-700 leading-relaxed">Le point culminant de l'année. Un banquet prestigieux réunissant anciens et nouveaux membres. Une soirée de gala sous le signe de l'histoire et de la transmission.</p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <span class="text-xs font-bold text-slate-400 uppercase">Avec :</span>
+                            <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-bold uppercase tracking-widest">Au Jardin Divers</span>
+                            <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-[10px] font-bold uppercase tracking-widest">St-Feuillien</span>
+                        </div>
                     </div>
                 </div>
 
@@ -243,24 +543,24 @@
             <!-- LISTE DES PARTENAIRES (Ajouter vos logos ici) -->
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 items-center justify-items-center">
                 <div class="text-center group">
-                    <img src="https://via.placeholder.com/120x80?text=LOGO+1" alt="Partenaire" class="partner-logo mb-2">
-                    <p class="text-[10px] font-bold text-slate-400 group-hover:text-slate-900 transition uppercase">Brasserie St-Feuillien</p>
+                    <img src="images/jardin divers.png" alt="Partenaire" class="partner-logo mb-2">
+                    <p class="text-[10px] font-bold text-slate-400 group-hover:text-slate-900 transition uppercase">Au Jardin Divers</p>
                 </div>
                 <div class="text-center group">
-                    <img src="https://via.placeholder.com/120x80?text=LOGO+2" alt="Partenaire" class="partner-logo mb-2">
-                    <p class="text-[10px] font-bold text-slate-400 group-hover:text-slate-900 transition uppercase">Ville de La Louvière</p>
+                    <img src="images/kasteel.png" alt="Partenaire" class="partner-logo mb-2">
+                    <p class="text-[10px] font-bold text-slate-400 group-hover:text-slate-900 transition uppercase">Kasteel</p>
                 </div>
                 <div class="text-center group">
-                    <img src="https://via.placeholder.com/120x80?text=LOGO+3" alt="Partenaire" class="partner-logo mb-2">
-                    <p class="text-[10px] font-bold text-slate-400 group-hover:text-slate-900 transition uppercase">Imprimerie Centrale</p>
+                    <img src="images/st feuillein.png" alt="Partenaire" class="partner-logo mb-2">
+                    <p class="text-[10px] font-bold text-slate-400 group-hover:text-slate-900 transition uppercase">St-Feuillien</p>
                 </div>
                 <div class="text-center group">
-                    <img src="https://via.placeholder.com/120x80?text=LOGO+4" alt="Partenaire" class="partner-logo mb-2">
-                    <p class="text-[10px] font-bold text-slate-400 group-hover:text-slate-900 transition uppercase">Boucherie du Centre</p>
+                    <img src="images/atelprint.png" alt="Partenaire" class="partner-logo mb-2">
+                    <p class="text-[10px] font-bold text-slate-400 group-hover:text-slate-900 transition uppercase">AtelPrint</p>
                 </div>
                 <div class="text-center group">
-                    <img src="https://via.placeholder.com/120x80?text=LOGO+5" alt="Partenaire" class="partner-logo mb-2">
-                    <p class="text-[10px] font-bold text-slate-400 group-hover:text-slate-900 transition uppercase">Banque Locale</p>
+                    <img src="images/raal.jpeg" alt="Partenaire" class="partner-logo mb-2">
+                    <p class="text-[10px] font-bold text-slate-400 group-hover:text-slate-900 transition uppercase">La Raal</p>
                 </div>
             </div>
         </div>
@@ -276,7 +576,7 @@
                         Associez votre image à une institution estudiantine dynamique de 120 membres et accédez à une audience de milliers d'étudiants à LLN.
                     </p>
                     <ul class="space-y-4">
-                        <li class="flex items-center gap-4"><i class="fas fa-check-circle text-blue-500"></i> Visibilité sur textiles (120 pulls)</li>
+                        <li class="flex items-center gap-4"><i class="fas fa-check-circle text-blue-500"></i> Visibilité sur textiles (120 pulls, polos, t-shirts)</li>
                         <li class="flex items-center gap-4"><i class="fas fa-check-circle text-blue-500"></i> Présence sur les événements phares (+1000 pers.)</li>
                         <li class="flex items-center gap-4"><i class="fas fa-check-circle text-blue-500"></i> Campagnes Instagram & Facebook ciblées</li>
                     </ul>
@@ -301,22 +601,22 @@
     <!-- CONTACT -->
     <footer id="contact" class="bg-white py-20 border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-folklorique mb-12">Contactez la Meute</h2>
+            <h2 class="text-4xl font-folklorique mb-12">Contactez la plus familiale des régionales</h2>
             <div class="flex flex-wrap justify-center gap-12 mb-16 font-bold text-slate-800">
-                <a href="mailto:comite@regionale-centre.be" class="flex flex-col items-center gap-4 hover:text-blue-600 transition group">
+                <a href="mailto:tresorie.centrale@gmail.com" class="flex flex-col items-center gap-4 hover:text-blue-600 transition group">
                     <div class="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-blue-50 transition"><i class="fas fa-envelope"></i></div>
                     <span class="text-xs uppercase tracking-widest">Email Officiel</span>
                 </a>
-                <a href="#" class="flex flex-col items-center gap-4 hover:text-pink-600 transition group">
+                <a href="https://www.instagram.com/centraleucl" class="flex flex-col items-center gap-4 hover:text-pink-600 transition group">
                     <div class="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-pink-50 transition"><i class="fab fa-instagram"></i></div>
                     <span class="text-xs uppercase tracking-widest">Instagram</span>
                 </a>
-                <a href="#" class="flex flex-col items-center gap-4 hover:text-blue-800 transition group">
+                <a href="https://www.facebook.com/CentraleUCL" class="flex flex-col items-center gap-4 hover:text-blue-800 transition group">
                     <div class="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-blue-50 transition"><i class="fab fa-facebook"></i></div>
                     <span class="text-xs uppercase tracking-widest">Facebook</span>
                 </a>
             </div>
-            <p class="text-slate-400 text-[10px] uppercase tracking-[0.3em]">&copy; 2024 La Régionale du Centre • Louvain-la-Neuve • Amitiés & Folklore</p>
+            <p class="text-slate-400 text-[10px] uppercase tracking-[0.3em]">&copy; 2026 La Régionale du Centre • Louvain-la-Neuve • Amitiés & Folklore</p>
         </div>
     </footer>
 
@@ -331,6 +631,48 @@
         }
         window.addEventListener("scroll", reveal);
         window.onload = reveal;
+
+        // Ajouter la classe event-image aux conteneurs d'images d'événements
+        document.addEventListener("DOMContentLoaded", function() {
+            const eventImages = document.querySelectorAll(".reveal .w-full.md\\:w-1\\/2.h-\\[400px\\]");
+            eventImages.forEach(el => {
+                if (el.querySelector("img")) {
+                    el.classList.add("event-image");
+                }
+            });
+
+            // Animation des badges sponsors
+            const sponsorBadges = document.querySelectorAll(".bg-amber-100");
+            sponsorBadges.forEach(badge => {
+                badge.style.transition = "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)";
+                badge.addEventListener("mouseenter", function() {
+                    this.style.transform = "translateY(-3px) scale(1.05)";
+                    this.style.boxShadow = "0 6px 16px rgba(166, 77, 46, 0.3)";
+                });
+                badge.addEventListener("mouseleave", function() {
+                    this.style.transform = "translateY(0) scale(1)";
+                    this.style.boxShadow = "none";
+                });
+            });
+
+            // Animation des événements au survol
+            const cards = document.querySelectorAll(".reveal");
+            cards.forEach(card => {
+                card.addEventListener("mouseenter", function() {
+                    const img = this.querySelector("img");
+                    if (img) {
+                        img.style.filter = "brightness(1.15)";
+                    }
+                });
+                card.addEventListener("mouseleave", function() {
+                    const img = this.querySelector("img");
+                    if (img) {
+                        img.style.filter = "brightness(1)";
+                    }
+                });
+            });
+        });
     </script>
+
 </body>
 </html>
